@@ -46,7 +46,7 @@ class BaseController extends HomeController {
         if(isset($model['group'])&&$model['group']='sibling_id'){
             $data=game_merge($data,$model['map']);
         }
-        $this->assign("count",$cuont);
+        $this->assign("count",$count);
         $this->assign('list_data', $data);
         $this->display($model['tmeplate_list']);
 	}
@@ -67,7 +67,7 @@ class BaseController extends HomeController {
             $page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %HEADER%');
             $this->assign('_page', $page->show());
         }
-        $this->assign("count",$cuont);
+        $this->assign("count",$count);
         $this->assign('list_data', $data);
         $this->display($model['tmeplate_list']);
 	}
