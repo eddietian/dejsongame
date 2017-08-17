@@ -1,0 +1,56 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>动态密保</h2>
+	</div>
+	<div class="tab-wrap">
+		<ul class="tab-nav nav">
+			<li data-tab="tab1" class="current"><a href="javascript:void(0);" >动态密保</a></li>
+		</ul>
+		<div class="tab-content">
+		<div id="tab1" class="tab-pane in tab1">
+		<form action="{:U('saveTool')}" method="post" class="form-horizontal OSS">
+			<div class="form-item">
+				<label class="item-label">商户号<span class="check-tips">（溪谷所取）</span> </label>
+				<div class="controls">
+					<input type="text" class="text input-large" name="config[partner]" value="{$set_cooperate['partner']}">
+				</div>
+			</div>
+			<div class="form-item">
+				<label class="item-label">密钥<span class="check-tips">（溪谷所取）</span> </label>
+				<div class="controls">
+					<input type="text" class="text input-large" name="config[key]" value="{$set_cooperate['key']}">
+				</div>
+			</div>
+			<div class="form-item">
+				<label class="item-label">启用状态<span class="check-tips">（是否启用动态密保）</span> </label>
+				<div class="controls">
+					<input type="radio" class="inp_radio" value="0" name="status" <eq name="set_cooperate_data['status']" value="0">checked="checked"</eq>>禁用
+                    <input type="radio" class="inp_radio" value="1" name="status" <eq name="set_cooperate_data['status']" value="1">checked="checked"</eq>>启用
+				</div>
+			</div>
+			<div class="form-item">
+				<div class="controls">
+					<input type="hidden" name="name" value="set_cooperate"></input>
+					<!-- <button type="submit" class="btn submit-btn" target-form="form-horizontal-oss">确 定</button> -->
+					<button type="submit" class="btn submit-btn ajax-post" target-form="OSS">确 定</button>
+					<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+				</div>
+			</div>
+		</form>
+		</div>
+		</div>
+	</div>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+	//导航高亮
+	highlight_subnav('{:U('Tool/cooperate')}');
+	$(function(){
+		//支持tab
+		showTab();
+	})
+</script>
+</block>
