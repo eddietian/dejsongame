@@ -648,3 +648,6 @@ input, textarea {
     background-position: 0 0;
     width: 50%;
 }
+.line_bottom {
+    border-bottom: 1px solid #ececec;
+}

@@ -1,7 +1,101 @@
 <extend name="Public/base"/>
-<script src="http://pc.vlcms.com/Public/Media/js/vivo-common.js"></script>
 
 <block name="body" >
+
+<div class="main wrap_w">
+    <div class="nav-left">
+        <ul>
+            <li class="title line_bottom"><span>上架新游</span></li>
+            <li class="title line_bottom"><span>安卓游戏</span></li>
+            <li class="title"><span>IOS游戏</span></li>
+        </ul>
+    </div>
+    <div class="nav-right">
+        <div class="game_com_list">
+            <ul>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+                <li>
+                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
+                    <span class="gname">神奇宝贝</span>
+                    <b></b>
+                </li>
+
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="game_nav">
+            <ul>
+                <li>指尖梦幻</li>
+                <li>宠物小精灵</li>
+                <li>梦幻仙境挂</li>
+                <li>天道</li>
+                <li>指尖梦幻</li>
+                <li>宠物小精灵</li>
+                <li>梦幻仙境挂</li>
+                <li>天道</li>
+                <li>指尖梦幻</li>
+                <li>宠物小精灵</li>
+                <li>梦幻仙境挂</li>
+                <li>天道</li>
+                <li>指尖梦幻</li>
+                <li>宠物小精灵</li>
+                <li>梦幻仙境挂</li>
+                <li>天道</li>
+                <li>指尖梦幻</li>
+                <li>宠物小精灵</li>
+                <li>梦幻仙境挂</li>
+                <li>天道</li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
 <div class="main wrap_w">
     <div class="col_1 clearfix">
         <div class="l">
@@ -207,7 +301,7 @@
         <div class="l">
             <div class="title"> 
                 <span>游戏活动</span> 
-                <em><a href="{:U('Article/lists/category/media_activity')}" target="_blank">更多&gt;&gt;</a></em> 
+                <em><a href="{:U('Media/Article/lists/category/media_activity')}" target="_blank">更多&gt;&gt;</a></em>
             </div>
             <div class="lcons">
                 <ul class="clearfix">
@@ -243,7 +337,7 @@
 </div>
 
 <!--悬浮窗口-->
-<div id="vivo-head">
+<!--<div id="vivo-head">
 	<div class="vivo-search">
       <div style="margin:0 auto; width:1000px; height:100px;"><div class="guide-app-link"><a href="{:U('download')}" target="_blank"><img src="http://pc.vlcms.com/Public/Media/images/foot-link_3625020.png" ></a></div></div>
 		<div class="search-box">
@@ -257,6 +351,7 @@
 		</div>
 	</div>
 </div>
+-->
     <script src="__STATIC__/layer/extend/layer.ext.js" type="text/javascript"></script>
     <script>
 
@@ -335,6 +430,22 @@
                 },100000);
 
             }
+        });
+
+        $(function(){
+            $('.game_com_list li').hover(function(){
+                $('b',this).stop().css('height','2px');
+                $('b',this).animate({
+                    left:'0',
+                    width:'100%',
+                    right:'0'
+                },200);
+            },function(){
+                $('b',this).stop().animate({
+                    left:'50%',
+                    width:'0'
+                },200);
+            });
         });
 
     </script>
