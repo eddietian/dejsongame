@@ -79,6 +79,16 @@ class GameController extends ThinkController {
         }
     }
 
+    public function indexnav(){
+        $this->meta_title = '首页导航';
+
+        $data = array();
+        $data['title'] = "导航";
+
+        $this->assign("data", $data);
+        $this->display();
+    }
+
     /**
     *删除原包
     */

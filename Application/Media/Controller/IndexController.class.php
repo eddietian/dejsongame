@@ -12,12 +12,52 @@ class IndexController extends BaseController {
 
 	//系统首页
     public function index(){
+        $this->nav();
         $this->slide();
     	$this->recommend();
     	$this->hot();
     	$this->gift();
     	$this->area();
         $this->display();
+    }
+
+    public function nav() {
+        $navinfo = $this->getHtmlContent(array("HOME_NAV_NEWGAME", "HOME_NAV_ANDROIDGAME"));
+
+        if (empty($navinfo)) {
+            return false;
+        }
+
+        $gameinfoids = array();
+        //拿到gameid
+        foreach ($navinfo as $key => $v) {
+            $ids = explode(",", $v['content']);
+            $navinfo[$key]['ids'] = $ids;
+            $gameinfoids = array_merge($gameinfoids,$ids);
+        }
+
+        //拿到游戏信息
+        $gameinfo = $this->getGameByGameids($gameinfoids);
+
+        foreach ($navinfo as $key => $v) {
+            foreach ($v['ids'] as $kk => $gameid) {
+                $navinfo[$key]['ids'][$kk] = $gameinfo[$gameid];
+            }
+        }
+
+        $this->assign("nav_newgame", array_slice($navinfo['HOME_NAV_NEWGAME']['ids'], 0, 10));
+        $this->assign("nav_newgame_other", array_slice($navinfo['HOME_NAV_NEWGAME']['ids'], 10, 20));
+
+
+        $this->assign("nav_androidgame", array_slice($navinfo['HOME_NAV_NEWGAME']['ids'], 0, 10));
+        $this->assign("nav_androidgame_other", array_slice($navinfo['HOME_NAV_NEWGAME']['ids'], 10, 20));
+
+
+        $this->assign("nav_iosgame", array_slice($navinfo['HOME_NAV_NEWGAME']['ids'], 0, 10));
+        $this->assign("nav_iosgame_other", array_slice($navinfo['HOME_NAV_NEWGAME']['ids'], 10, 20));
+
+
+
     }
 
 
@@ -33,6 +73,7 @@ class IndexController extends BaseController {
 	*推荐游戏
     */
     public function recommend(){
+
     	$model = array(
     		'm_name'=>'Game',
     		'prefix'=>'tab_',

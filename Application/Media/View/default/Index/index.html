@@ -4,94 +4,104 @@
 
 <div class="main wrap_w">
     <div class="nav-left">
-        <ul>
-            <li class="title line_bottom"><span>上架新游</span></li>
-            <li class="title line_bottom"><span>安卓游戏</span></li>
-            <li class="title"><span>IOS游戏</span></li>
+        <ul class="homeNavTitle">
+            <li class="title line_bottom" showid="1"><span>上架新游</span></li>
+            <li class="title line_bottom" showid="2"><span>安卓游戏</span></li>
+            <li class="title" showid="3"><span>IOS游戏</span></li>
         </ul>
     </div>
     <div class="nav-right">
+
+        <div id="nav_box_1">
         <div class="game_com_list">
             <ul>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
-                <li>
-                    <img src="http://game.dejson.com/Uploads/Picture/2017-08-27/59a27e0b8f2e5.png"/>
-                    <span class="gname">神奇宝贝</span>
-                    <b></b>
-                </li>
+
+                <volist name="nav_newgame" id="vo" >
+                    <li>
+                        <a href="{:U('Game/game_detail?id='.$vo['sibling_id'].'')}" target="_blank">
+                        <img src="{$vo.icon|get_cover='path'}" alt="{$vo.gamename}"/>
+                        <span class="gname">{$vo.gamename}</span>
+                        <b></b>
+                        </a>
+                    </li>
+                </volist>
 
             </ul>
             <div class="clear"></div>
         </div>
         <div class="game_nav">
             <ul>
-                <li>指尖梦幻</li>
-                <li>宠物小精灵</li>
-                <li>梦幻仙境挂</li>
-                <li>天道</li>
-                <li>指尖梦幻</li>
-                <li>宠物小精灵</li>
-                <li>梦幻仙境挂</li>
-                <li>天道</li>
-                <li>指尖梦幻</li>
-                <li>宠物小精灵</li>
-                <li>梦幻仙境挂</li>
-                <li>天道</li>
-                <li>指尖梦幻</li>
-                <li>宠物小精灵</li>
-                <li>梦幻仙境挂</li>
-                <li>天道</li>
-                <li>指尖梦幻</li>
-                <li>宠物小精灵</li>
-                <li>梦幻仙境挂</li>
-                <li>天道</li>
+                <volist name="nav_newgame_other" id="vo" >
+                    <li>
+                        <a href="{:U('Game/game_detail?id='.$vo['sibling_id'].'')}" target="_blank">{$vo.gamename}</a>
+                    </li>
+                </volist>
             </ul>
             <div class="clear"></div>
         </div>
+
+        </div>
+
+        <div id="nav_box_2" style="display: none;">
+            <div class="game_com_list">
+                <ul>
+
+                    <volist name="nav_androidgame" id="vo" >
+                        <li>
+                            <a href="{:U('Game/game_detail?id='.$vo['sibling_id'].'')}" target="_blank">
+                                <img src="{$vo.icon|get_cover='path'}" alt="{$vo.gamename}"/>
+                                <span class="gname">{$vo.gamename}</span>
+                                <b></b>
+                            </a>
+                        </li>
+                    </volist>
+
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="game_nav">
+                <ul>
+                    <volist name="nav_androidgame_other" id="vo" >
+                        <li>
+                            <a href="{:U('Game/game_detail?id='.$vo['sibling_id'].'')}" target="_blank">{$vo.gamename}</a>
+                        </li>
+                    </volist>
+                </ul>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+
+        <div id="nav_box_3"  style="display: none;">
+            <div class="game_com_list">
+                <ul>
+
+                    <volist name="nav_iosgame" id="vo" >
+                        <li>
+                            <a href="{:U('Game/game_detail?id='.$vo['sibling_id'].'')}" target="_blank">
+                                <img src="{$vo.icon|get_cover='path'}" alt="{$vo.gamename}"/>
+                                <span class="gname">{$vo.gamename}</span>
+                                <b></b>
+                            </a>
+                        </li>
+                    </volist>
+
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="game_nav">
+                <ul>
+                    <volist name="nav_iosgame_other" id="vo" >
+                        <li>
+                            <a href="{:U('Game/game_detail?id='.$vo['sibling_id'].'')}" target="_blank">{$vo.gamename}</a>
+                        </li>
+                    </volist>
+                </ul>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+
     </div>
     <div class="clear"></div>
 </div>
@@ -445,6 +455,25 @@
                     left:'50%',
                     width:'0'
                 },200);
+            });
+
+            $(".homeNavTitle li").mouseover(function(){
+                var navid = $(this).attr("showid");
+                $("#nav_box_1").hide();
+                $("#nav_box_2").hide();
+                $("#nav_box_3").hide();
+                switch(navid) {
+                    case "1":
+                        $("#nav_box_1").show();
+                        break;
+                    case "2":
+                        $("#nav_box_2").show();
+                        break;
+                    case "3":
+                        $("#nav_box_3").show();
+                        break;
+                }
+
             });
         });
 
